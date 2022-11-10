@@ -13,22 +13,24 @@ class Hero:
         self.current_health = starting_health
     
     def fight(self, opponent):
+        """
+        The fight() method will take an opponent as a parameter. An opponent is another instance of Hero.
+        """
         random_number = random.randint(0,1)
         print(type (random_number))
         winner = ''
         if random_number == 0:
             winner = self.name
+            loser = opponent.name
         elif random_number == 1:
-            winner = opponent
-        print (f"{winner} wins!")
+            winner = opponent.name
+            loser = self.name
+        print (f"{winner} defeats {loser}!")
         return winner
-
-       
-        
-        
 
 
 if __name__ == "__main__":
-    my_hero = Hero("Grace Hopper", 200)
-    my_hero.fight()
+    wonder_woman = Hero('Wonder Woman', 200)
+    hulk = Hero('Hulk', 200)
+    wonder_woman.fight(hulk)
     
