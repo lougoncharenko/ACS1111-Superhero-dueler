@@ -29,6 +29,28 @@ class Hero:
         return winner
 
 
+class Ability:
+    def __init__(self, name, max_damage) -> None:
+        """
+        Takes in name: String, max_damage: Integer as parameters
+        """
+        self.name = name
+        self. max_damage = max_damage
+
+    def attack(self):
+        pass
+
+
+class Armor:
+    def __init__(self, name, max_block) -> None:
+        """
+        Takes in name: String, max_block: Integer as parameters
+        """
+        pass
+
+    def attack(self):
+        pass
+
 if __name__ == "__main__":
     wonder_woman = Hero('Wonder Woman', 200)
     hulk = Hero('Hulk', 200)
