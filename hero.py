@@ -38,7 +38,10 @@ class Ability:
         self. max_damage = max_damage
 
     def attack(self):
-        pass
+        """
+        A random number is generated between 0 and max_damage to attack. 
+        """
+        random.randint(0, self.max_damage)
 
 
 class Armor:
