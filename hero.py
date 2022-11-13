@@ -80,9 +80,7 @@ class Hero:
         Updates self.current_health to reflect the damage minus the defense.
         '''
         damage -= self.defend()
-        # print(f"{name}'s damage points is {damage}")
         self.current_health -= damage
-        # print(f"{name}'s current health is {self.current_health}")
 
     def is_alive(self):
         '''
@@ -95,10 +93,7 @@ class Hero:
         
 
 if __name__ == "__main__":
-    # ability = Ability("Great Debugging", 50)
     hero = Hero("Grace Hopper", 200)
-    # hero.add_ability(ability)
-    # print(hero.attack())
     print(hero.current_health)
     armor = Armor("Debugging Shield", 10)
     hero.add_armor(armor)
