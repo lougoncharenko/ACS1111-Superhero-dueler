@@ -35,8 +35,9 @@ class Hero:
         return winner
 
     
-    def add_ability(self,ability_class):
-        pass
+    def add_ability(self,ability):
+        ''' Add ability to abilities list '''
+        self.abilities.append(ability)
 
     def attack(self):
         pass
@@ -54,5 +55,9 @@ if __name__ == "__main__":
     wonder_woman = Hero('Wonder Woman', 200)
     hulk = Hero('Hulk', 200)
     wonder_woman.fight(hulk)
+    ability = Ability("Great Debugging", 50)
+    hero = Hero("Grace Hopper", 200)
+    hero.add_ability(ability)
+    print(hero.abilities)
 
     
