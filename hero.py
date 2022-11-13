@@ -1,4 +1,6 @@
 import random
+from ability import Ability
+from armor import Armor
 
 class Hero:
     def __init__(self, name, starting_health):
@@ -28,34 +30,25 @@ class Hero:
         print (f"{winner} defeats {loser}!")
         return winner
 
-
-class Ability:
-    def __init__(self, name, max_damage) -> None:
-        """
-        Takes in name: String, max_damage: Integer as parameters
-        """
-        self.name = name
-        self. max_damage = max_damage
-
-    def attack(self):
-        """
-        A random number is generated between 0 and max_damage to attack. 
-        """
-        random.randint(0, self.max_damage)
-
-
-class Armor:
-    def __init__(self, name, max_block) -> None:
-        """
-        Takes in name: String, max_block: Integer as parameters
-        """
+    
+    def add_ability(self,ability_class):
         pass
 
     def attack(self):
+        pass
+
+    def defend(self, incoming_damage):
+        pass
+
+    def take_damage(self, damage):
+        pass
+
+    def is_alive(self):
         pass
 
 if __name__ == "__main__":
     wonder_woman = Hero('Wonder Woman', 200)
     hulk = Hero('Hulk', 200)
     wonder_woman.fight(hulk)
+
     
