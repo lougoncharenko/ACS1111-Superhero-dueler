@@ -40,7 +40,14 @@ class Hero:
         self.abilities.append(ability)
 
     def attack(self):
-        pass
+        '''Calculate the total damage from all ability attacks.
+        return: total_damage:Int
+        '''
+        total_damage = 0
+
+        for ability in self.abilities:
+            total_damage += ability.attack()
+        return total_damage
 
     def defend(self, incoming_damage):
         pass
@@ -58,6 +65,6 @@ if __name__ == "__main__":
     ability = Ability("Great Debugging", 50)
     hero = Hero("Grace Hopper", 200)
     hero.add_ability(ability)
-    print(hero.abilities)
+    print(hero.attack())
 
     
