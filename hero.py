@@ -1,6 +1,7 @@
 import random
 from ability import Ability
 from armor import Armor
+from weapon import Weapon
 
 class Hero:
     def __init__(self, name, starting_health):
@@ -46,9 +47,23 @@ class Hero:
             return winner 
             
 
-    def add_ability(self,ability):
+    def add_ability(self, ability):
         ''' Add ability to abilities list '''
         self.abilities.append(ability)
+
+    def add_armor(self, armor):
+        '''
+        Add armor to self.armors
+        Armor: Armor Object
+        '''
+        self.armors.append(armor)
+
+    def add_weapon(self, weapon):
+        ''' 
+        Add weapon to self.abilities
+        '''
+        self.abilities.append(weapon)
+
 
     def attack(self):
         '''
@@ -61,12 +76,6 @@ class Hero:
             total_damage += ability.attack()
         return total_damage
 
-    def add_armor(self, armor):
-        '''
-        Add armor to self.armors
-        Armor: Armor Object
-        '''
-        self.armors.append(armor)
 
     def defend(self):
         total_defense = 0
@@ -93,12 +102,10 @@ class Hero:
         
 
 if __name__ == "__main__":
-    hero = Hero("Grace Hopper", 200)
-    print(hero.current_health)
-    armor = Armor("Debugging Shield", 10)
-    hero.add_armor(armor)
-    hero.take_damage(50)
-    print(hero.current_health)
+    hero = Hero("Wonder Woman", 200)
+    weapon = Weapon("Lasso of Truth", 90)
+    hero.add_weapon(weapon)
+    print(hero.attack())
    
 
 
