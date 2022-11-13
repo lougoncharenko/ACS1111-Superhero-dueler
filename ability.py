@@ -5,7 +5,7 @@ class Ability:
         Takes in name: String, max_damage: Integer as parameters
         """
         self.name = name
-        self. max_damage = max_damage
+        self.max_damage = max_damage
 
     def attack(self):
         """
