@@ -1,4 +1,5 @@
 from ability import Ability
+from armor import Armor
 from hero import Hero
 
 if __name__ == "__main__":
@@ -8,3 +9,6 @@ if __name__ == "__main__":
     ability = Ability("Great Debugging", 50)
     wonder_woman.add_ability(ability)
     print(wonder_woman.attack())
+    armor = Armor("Debugging Shield", 10)
+    wonder_woman.add_armor(armor)
+    print(wonder_woman.defend())
