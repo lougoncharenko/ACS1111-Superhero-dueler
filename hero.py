@@ -40,7 +40,8 @@ class Hero:
         self.abilities.append(ability)
 
     def attack(self):
-        '''Calculate the total damage from all ability attacks.
+        '''
+        Calculate the total damage from all ability attacks.
         return: total_damage:Int
         '''
         total_damage = 0
@@ -49,8 +50,19 @@ class Hero:
             total_damage += ability.attack()
         return total_damage
 
-    def defend(self, incoming_damage):
-        pass
+    def add_armor(self, armor):
+        '''
+        Add armor to self.armors
+        Armor: Armor Object
+        '''
+        self.armors.append(armor)
+
+    def defend(self):
+        total_defense = 0
+
+        for armor in self.armors:
+            total_defense += armor.block()
+        return total_defense
 
     def take_damage(self, damage):
         pass
@@ -59,9 +71,6 @@ class Hero:
         pass
 
 if __name__ == "__main__":
-    wonder_woman = Hero('Wonder Woman', 200)
-    hulk = Hero('Hulk', 200)
-    wonder_woman.fight(hulk)
     ability = Ability("Great Debugging", 50)
     hero = Hero("Grace Hopper", 200)
     hero.add_ability(ability)
