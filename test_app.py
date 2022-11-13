@@ -72,13 +72,13 @@ def test_weapon_attack():
 
 # Test Heroes Class
 def test_hero_instance():
-    Athena = Hero("Athena")
+    Athena = Hero("Athena", 300)
     assert Athena
 
 
 def test_hero_add_ability():
-    big_strength = Ability("Overwhelming Strength", 300)
-    Athena = Hero("Athena")
+    big_strength = Ability("Overwhelming Strength", 70)
+    Athena = Hero("Athena", 300)
     assert len(Athena.abilities) == 0
     Athena.add_ability(big_strength)
     assert len(Athena.abilities) == 1
@@ -90,7 +90,7 @@ def test_hero_add_ability():
 def test_hero_add_multi_ability():
     big_strength = Ability("Overwhelming Strength", 300)
     speed = Ability("Lightning Speed", 500)
-    Athena = Hero("Athena")
+    Athena = Hero("Athena", 300)
     assert len(Athena.abilities) == 0
     Athena.add_ability(big_strength)
     assert len(Athena.abilities) == 1
@@ -103,7 +103,7 @@ def test_hero_add_multi_ability():
 
 def test_hero_attack_ability():
     big_strength = Ability("Overwhelming Strength", 30000)
-    athena = Hero("Athena")
+    athena = Hero("Athena", 300)
     assert athena.attack() == 0
     athena.add_ability(big_strength)
     attack = athena.attack()
@@ -111,7 +111,7 @@ def test_hero_attack_ability():
 
 
 def test_hero_ability_attack_mean_value():
-    athena = Hero("Athena")
+    athena = Hero("Athena", 300)
     strength = random.randint(10, 30000)
     big_strength = Ability("Overwhelming Strength", strength)
     athena.add_ability(big_strength)
@@ -135,7 +135,7 @@ def test_hero_ability_attack_mean_value():
     assert actual_mean <= calculated_mean + accepted_window and actual_mean >= calculated_mean - accepted_window
 
 def test_hero_ability_attack_standard_deviation():
-    willow_waffle = Hero("Willow Waffle")
+    willow_waffle = Hero("Willow Waffle", 300)
     strength = random.randint(400, 30000)
     willow = Ability("Willowness", strength)
     willow_waffle.add_ability(willow)
@@ -158,7 +158,7 @@ def test_hero_ability_attack_standard_deviation():
 
 
 def test_hero_weapon_equip():
-    sans = Hero("Comic Sans")
+    sans = Hero("Comic Sans", 300)
     weapon = Weapon("Garlic Hot Sauce", 400)
     sans.add_ability(weapon)
     assert len(sans.abilities) == 1
@@ -167,7 +167,7 @@ def test_hero_weapon_equip():
 # This tests if the average of all attacks is correct.
 # This test will faile if the random range of values is not correct.
 def test_hero_weapon_attack_mean_value():
-    kkrunch = Hero("Kaptain Krunch")
+    kkrunch = Hero("Kaptain Krunch", 300)
     strength = random.randint(10, 30000)
     min_attack = strength // 2
     big_strength = Weapon("Sword of Whimsy", strength)
@@ -198,7 +198,7 @@ def test_hero_weapon_attack_mean_value():
 # This method uses statistics to check that a random value is given.
 # This test will only fail if the same value is returned over the course of 1000 runs.
 def test_hero_attack_standard_deviation():
-    willow_waffle = Hero("Willow Waffle")
+    willow_waffle = Hero("Willow Waffle", 300)
     strength = random.randint(400, 30000)
     travel_agent = Weapon("Travel Agents", strength)
     willow_waffle.add_ability(travel_agent)
@@ -221,7 +221,7 @@ def test_hero_attack_standard_deviation():
 
 def test_hero_attack_weapon():
     big_strength = Ability("Overwhelming Strength", 200)
-    Athena = Hero("Athena")
+    Athena = Hero("Athena", 300)
     Athena.add_ability(big_strength)
     test_runs = 100
     for _ in range(0, test_runs):
@@ -232,7 +232,7 @@ def test_hero_attack_weapon():
 def test_hero_multi_weapon_attack():
     strength = Weapon("Overwhelming Strength", 200)
     sword_of_truth = Weapon("Sword of Truth", 700)
-    Athena = Hero("Athena")
+    Athena = Hero("Athena", 300)
     Athena.add_ability(strength)
     Athena.add_ability(sword_of_truth)
     assert len(Athena.abilities) == 2
@@ -246,7 +246,7 @@ def test_hero_multi_weapon_attack():
 def test_hero_weapon_ability_attack():
     quickness = Ability("Quickness", 1300)
     sword_of_truth = Weapon("Sword of Truth", 700)
-    Athena = Hero("Athena")
+    Athena = Hero("Athena", 300)
     Athena.add_ability(quickness)
     Athena.add_ability(sword_of_truth)
     assert len(Athena.abilities) == 2
@@ -274,7 +274,7 @@ def test_team_name():
 
 def test_team_hero():
     team = Team("One")
-    jodie = Hero("Jodie Foster")
+    jodie = Hero("Jodie Foster", 300)
     team.add_hero(jodie)
     assert len(team.heroes) == 1
     assert team.heroes[0].name == "Jodie Foster"
@@ -282,7 +282,7 @@ def test_team_hero():
 
 def test_team_remove_hero():
     team = Team("One")
-    jodie = Hero("Jodie Foster")
+    jodie = Hero("Jodie Foster", 300)
     team.add_hero(jodie)
     assert team.heroes[0].name == "Jodie Foster"
     team.remove_hero("Jodie Foster")
@@ -292,7 +292,7 @@ def test_team_remove_hero():
 def test_team_remove_unlisted():
     # Test that if no results found return 0
     team = Team("One")
-    jodie = Hero("Jodie Foster")
+    jodie = Hero("Jodie Foster", 300)
     team.add_hero(jodie)
     code = team.remove_hero("Athena")
     assert code == 0
@@ -305,9 +305,9 @@ def test_team_remove_empty_list():
 
 def test_print_heroes():
     team = Team("One")
-    jodie = Hero("Jodie Foster")
+    jodie = Hero("Jodie Foster", 300)
     team.add_hero(jodie)
-    athena = Hero("Athena")
+    athena = Hero("Athena", 300)
     team.add_hero(athena)
     output_string = capture_console_output(team.view_all_heroes)
 
