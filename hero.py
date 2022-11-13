@@ -25,13 +25,18 @@ class Hero:
         random_number = random.randint(0,1)
         print(type (random_number))
         winner = ''
-        if random_number == 0:
-            winner = self.name
-            loser = opponent.name
-        elif random_number == 1:
-            winner = opponent.name
-            loser = self.name
-        print (f"{winner} defeats {loser}!")
+        loser = ''
+        if bool(self.abilities) or bool(opponent.abilities):
+            print('draw')
+        else:
+            print('fight')
+        # if random_number == 0:
+        #     winner = self.name
+        #     loser = opponent.name
+        # elif random_number == 1:
+        #     winner = opponent.name
+        #     loser = self.name
+        # print (f"{winner} defeats {loser}!")
         return winner
 
     
@@ -73,7 +78,14 @@ class Hero:
         self.current_health -= damage
 
     def is_alive(self):
-        pass
+        '''
+        Return True or False depending on whether the hero is alive or not.
+        '''
+        if self.current_health <= 0:
+            return False
+        else:
+            return True
+        
 
 if __name__ == "__main__":
     # ability = Ability("Great Debugging", 50)
