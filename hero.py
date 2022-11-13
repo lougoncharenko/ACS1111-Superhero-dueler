@@ -26,20 +26,26 @@ class Hero:
         print(type (random_number))
         winner = ''
         loser = ''
-        if bool(self.abilities) or bool(opponent.abilities):
+        if bool(self.abilities) == False and bool(opponent.abilities) == False:
             print('draw')
         else:
-            print('fight')
-        # if random_number == 0:
-        #     winner = self.name
-        #     loser = opponent.name
-        # elif random_number == 1:
-        #     winner = opponent.name
-        #     loser = self.name
-        # print (f"{winner} defeats {loser}!")
-        return winner
+            while self.is_alive() == True and opponent.is_alive() ==True:
+                opponent_damage = self.attack()
+                opponent.take_damage(opponent.name, opponent_damage)
+                self_damage = opponent.attack()
+                self.take_damage(self.name, self_damage)
+                if self.current_health > opponent.current_health:
+                    winner = self.name
+                    loser = opponent.name
+                else:
+                    winner = opponent.name
+                    loser = self.name
+                self.is_alive()
+                opponent.is_alive()
+            print(f'{winner} beats {loser}')
+            return winner 
+            
 
-    
     def add_ability(self,ability):
         ''' Add ability to abilities list '''
         self.abilities.append(ability)
@@ -69,13 +75,14 @@ class Hero:
             total_defense += armor.block()
         return total_defense
 
-    def take_damage(self, damage):
+    def take_damage(self, name, damage):
         '''
         Updates self.current_health to reflect the damage minus the defense.
         '''
         damage -= self.defend()
-        print(f"damage points is {damage}")
+        # print(f"{name}'s damage points is {damage}")
         self.current_health -= damage
+        # print(f"{name}'s current health is {self.current_health}")
 
     def is_alive(self):
         '''
