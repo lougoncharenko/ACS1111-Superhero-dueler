@@ -18,6 +18,8 @@ class Hero:
         self.name = name
         self.starting_health = starting_health
         self.current_health = starting_health
+        self.deaths = 0
+        self.kills = 0
     
     def fight(self, opponent):
         """
@@ -64,6 +66,13 @@ class Hero:
         '''
         self.abilities.append(weapon)
 
+    def add_kill(self, num_kills):
+        ''' Update self.kills by num_kills amount'''
+        self.kills += num_kills
+
+    def add_death(self, num_deaths):
+        ''' Update deaths with num_deaths'''
+        self.deaths += num_deaths
 
     def attack(self):
         '''
