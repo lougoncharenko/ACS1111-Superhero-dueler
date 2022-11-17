@@ -29,16 +29,16 @@ if __name__ == "__main__":
     captain_america.fight(hulk)
 
     #second test
-    # hero1 = Hero("Wonder Woman", 200)
-    # hero2 = Hero("Dumbledore", 200)
-    # ability1 = Ability("Super Speed", 10)
-    # ability2 = Ability("Super Eyes", 130)
-    # ability3 = Ability("Wizard Wand", 80)
-    # ability4 = Ability("Wizard Beard", 20)
-    # hero1.add_ability(ability1)
-    # hero1.add_ability(ability2)
-    # hero2.add_ability(ability3)
-    # hero2.add_ability(ability4)
-    # hero1.fight(hero2)
+    hero1 = Hero("Wonder Woman", 200)
+    hero2 = Hero("Dumbledore", 200)
+    ability1 = Ability("Super Speed", 10)
+    ability2 = Ability("Super Eyes", 130)
+    ability3 = Ability("Wizard Wand", 80)
+    ability4 = Ability("Wizard Beard", 20)
+    hero1.add_ability(ability1)
+    hero1.add_ability(ability2)
+    hero2.add_ability(ability3)
+    hero2.add_ability(ability4)
+    hero1.fight(hero2)
 
 
